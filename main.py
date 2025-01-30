@@ -1,5 +1,7 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
+from tinydb import TinyDB, Query
+db=TinyDB('db.json',indent=4)
 import os
 
 votes = {
@@ -29,17 +31,22 @@ def start(update, context):
     
 
 def like(update, context):
-    
+    q=Query()
     if update.callback_query.data == "like":
         votes["likes"] += 1
+        db.insert({"likes": votes["likes"],"username": update.callback_query.from_user.username,"chat_id": update.callback_query.message.chat_id})
     elif update.callback_query.data == "dislike":
         votes["dislikes"] += 1
+        db.insert({"dislikes": votes["dislikes"],"username": update.callback_query.from_user.username,"chat_id": update.callback_query.message.chat_id})
     elif update.callback_query.data == "laugh":
         votes["laugh"] += 1
+        db.insert({"laugh": votes["laugh"],"username": update.callback_query.from_user.username,"chat_id": update.callback_query.message.chat_id})
     elif update.callback_query.data == "smile":
         votes["smile"] += 1
+        db.insert({"smile": votes["smile"],"username": update.callback_query.from_user.username,"chat_id": update.callback_query.message.chat_id})
     elif update.callback_query.data == "angry":
         votes["angry"] += 1
+        db.insert({"angry": votes["angry"],"username": update.callback_query.from_user.username,"chat_id": update.callback_query.message.chat_id})
     keyboard = [
         [InlineKeyboardButton(f"👍 Like {votes['likes']}", callback_data="like")],
         [InlineKeyboardButton(f"👎 Dislike {votes['dislikes']}", callback_data="dislike")],
@@ -50,6 +57,8 @@ def like(update, context):
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     update.callback_query.edit_message_reply_markup(reply_markup=reply_markup) 
+
+    
 
 updater = Updater(TOKEN)  
 dispatcher = updater.dispatcher
