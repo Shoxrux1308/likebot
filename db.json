@@ -1,0 +1,44 @@
+{
+    "_default": {
+        "1": {
+            "likes": 1,
+            "username": "shohrux_1308",
+            "chat_id": 6824726862
+        },
+        "2": {
+            "dislikes": 1,
+            "username": "shohrux_1308",
+            "chat_id": 6824726862
+        },
+        "3": {
+            "laugh": 1,
+            "username": "shohrux_1308",
+            "chat_id": 6824726862
+        },
+        "4": {
+            "smile": 1,
+            "username": "shohrux_1308",
+            "chat_id": 6824726862
+        },
+        "5": {
+            "angry": 1,
+            "username": "shohrux_1308",
+            "chat_id": 6824726862
+        },
+        "6": {
+            "likes": 1,
+            "username": "shohrux_1308",
+            "chat_id": 6824726862
+        },
+        "7": {
+            "dislikes": 1,
+            "username": "shohrux_1308",
+            "chat_id": 6824726862
+        },
+        "8": {
+            "likes": 2,
+            "username": "axodjayev_1974",
+            "chat_id": 5925419647
+        }
+    }
+}
